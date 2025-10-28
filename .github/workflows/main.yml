@@ -9,7 +9,7 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - run: eslint --ext .jsx --fix src
+      - run: npx eslint --ext .jsx --fix src
       - run: vitest run
       - run: vite build
   deploy:
