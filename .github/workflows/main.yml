@@ -1,0 +1,19 @@
+name: MyFirstUsefulWorkflow
+on: [push]
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5.0.0
+      - uses: actions/setup-node@v6.0.0
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: eslint --ext .jsx --fix src
+      - run: vitest run
+      - run: vite build
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build-and-test]
+    steps:
+      - run: echo "Deploying app..."
