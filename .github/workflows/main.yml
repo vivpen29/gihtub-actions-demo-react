@@ -11,7 +11,7 @@ jobs:
       - run: npm ci
       - run: npx eslint --ext .jsx --fix src
       - run: npx vitest run
-      - run: vite build
+      - run: npm run build
   deploy:
     runs-on: ubuntu-latest
     needs: [build-and-test]
