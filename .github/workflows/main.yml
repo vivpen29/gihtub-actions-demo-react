@@ -10,7 +10,7 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npx eslint --ext .jsx --fix src
-      - run: vitest run
+      - run: npx vitest run
       - run: vite build
   deploy:
     runs-on: ubuntu-latest
